@@ -1,0 +1,25 @@
+<p>create-appointment works!</p>
+
+<h2>Termin erstellen</h2>
+<div class="card" style="width: 18rem;">
+  <form #form="ngForm">
+    <div>
+      <label for="title">Titel:</label>
+      <input type="text" id="title" name="title" [(ngModel)]="newAppointment.title">
+    </div>
+    <div>
+      <label for="date">Datum:</label>
+      <input type="datetime-local" id="date" name="date" [(ngModel)]="newAppointment.date">
+    </div>
+    <button (click)=" createAppointment()">Termin erstellen</button>
+  </form>
+</div>
+<br />
+-------------
+ <br />
+ <div>
+   <label>Teilnahmelink</label>
+   <br />
+   <a href={{url}}>{{url}}</a>
+ </div>
+

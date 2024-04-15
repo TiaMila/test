@@ -1,0 +1,68 @@
+<p>appointment-list works!</p>
+<div class="container" my-5>
+  <h1 mb-3>Employees</h1>
+  <table class="table" *ngIf="appointment">
+    <thead>
+      <tr>
+
+        <th>tile</th>
+        <th>Date</th>
+        <th>URL</th>
+        <th>Id</th>
+        <th>participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointmenti of appointment">
+
+        <td>{{appointmenti.title}}</td>
+        <td>{{appointmenti.date}}</td>
+        <td>http://localhost:4200/button/{{appointmenti.id}}</td>
+        <td>{{appointmenti.id}}</td>
+        <td>
+          <div *ngFor="let participant of appointmenti.participants">
+            {{participant.firstName}} {{participant.lastName}} @{{participant.department}},zeit:{{participant.time}}
+          </div>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!appointment">No appointments found</p>
+</div>
+
+<ng-container *ngFor="let appointment of appointment">
+  <mat-expansion-panel class="mb-4">
+    <mat-expansion-panel-header class="p-3 d-flex justify-content-between">
+      <span class="mr-4 ml-4 pr-4 pl-4">{{ appointment.title }}</span>
+      <span>-------</span>
+      <span class="mr-5 ml-5 pr-5">{{ appointment.date }}</span>
+      <span>-------</span>
+      <span class="mr-5 ml-5 pr-5">http://localhost:4200/button/{{appointment.id}}</span>
+    </mat-expansion-panel-header>
+    <div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let participant of appointment.participants">
+            <td class="px-4">{{ participant.firstName }}</td>
+            <td class="px-4">{{ participant.lastName }}</td>
+            <td class="px-4">{{ participant.department }}</td>
+            <td class="px-4">{{ participant.time }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </mat-expansion-panel>
+</ng-container>
+
+
+
+
